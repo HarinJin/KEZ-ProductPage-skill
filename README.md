@@ -4,7 +4,7 @@
 
 말로 요청하면("리뷰 섹션 만들어줘") Claude Code가 Figma 공식 MCP를 통해 실제 Figma 파일에 오토레이아웃 프레임을 생성·편집합니다. 디자인 규칙을 **측정값이 아니라 원리**로 정리한 디자인 시스템이 내장되어 있어, 어느 브랜드에든 그 브랜드의 색·서체를 꽂아 재사용할 수 있습니다.
 
-![이 스킬 스스로 만든 데모 상세페이지 — 히어로 섹션](docs/assets/hero.png)
+<img src="docs/assets/hero.png" width="500" alt="이 스킬 스스로 만든 데모 상세페이지 — 히어로 섹션" />
 
 > ▲ 이 히어로를 포함한 데모 페이지 전체를 **본 스킬 자신이 Figma에 제작**했습니다 (브랜드 프로파일: [`demo-browser-ui`](detail-page-core/references/brands/demo-browser-ui.md)). 섹션별 해설은 아래 [데모](#데모--이-스킬로-만든-페이지) 참조.
 
@@ -20,15 +20,15 @@
 
 이 시스템의 핵심입니다. 절대좌표로 흩뿌리지 않고 **섹션(column) ⊃ 카드(column) ⊃ row** 3단 중첩으로 쌓기 때문에, 카피가 늘거나 항목이 추가돼도 레이아웃이 스스로 재계산됩니다. 아래 다이어그램 자체도 실제 오토레이아웃 중첩으로 만들어졌습니다.
 
-![오토레이아웃 3단 중첩 다이어그램](docs/assets/autolayout-diagram.png)
+<img src="docs/assets/autolayout-diagram.png" width="500" alt="오토레이아웃 3단 중첩 다이어그램" />
 
 텍스트 박스는 카피의 역할로 사이징을 **배치 전에 판정**합니다 — **타이틀·배지는 hug width**(폭 = 텍스트 + 패딩), **본문은 fixed width + hug height**(폭 고정, 아래로 성장). 그리고 텍스트가 든 컨테이너는 캔버스폭의 84%를 넘지 않습니다(국내 상위 상세페이지 실측 기반 모바일 가독 규칙 — 본문 ≥ 폭의 4.5%, 캡션 ≥ 3%).
 
-![구조 섹션 — hug/fixed 판정 카드와 규칙 스트립](docs/assets/section-structure.png)
+<img src="docs/assets/section-structure.png" width="500" alt="구조 섹션 — hug/fixed 판정 카드와 규칙 스트립" />
 
 ### 사용 흐름 미리보기
 
-![사용법 섹션 — 브랜드 프로파일부터 자가 검수까지 4단계](docs/assets/section-howto.png)
+<img src="docs/assets/section-howto.png" width="500" alt="사용법 섹션 — 브랜드 프로파일부터 자가 검수까지 4단계" />
 
 ---
 
