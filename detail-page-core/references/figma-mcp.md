@@ -13,7 +13,7 @@
 ## 쓰기: use_figma 5규칙
 
 1. **폰트 로딩**: `await figma.loadFontAsync(fontName)` → 완료 후에만 텍스트/`appendChild`/`insertChild`. 스킵 시 `"Cannot write to node with unloaded font"`. 기존 텍스트 편집 시 `getStyledTextSegments(['fontName'])`로 현재 폰트를 읽어 로드(하드코딩 금지). **착수(스켈레톤) 단계에서 브랜드 프로파일의 모든 폰트를 `listAvailableFontsAsync()`로 1회 전수 확인**하고 결과(가용/미보유+대체 규칙)를 이후 전 작업·모든 빌더 프롬프트에 전파 — 작업자마다 재확인시키지 않는다(→ `troubleshooting.md` T7). 미보유 시 브랜드 프로파일의 대체 규칙을 따르거나 유저에게 업로드 요청 — 임의 유사 폰트 대체 금지.
-2. **오토레이아웃 순서**: `parent.appendChild(child)` **먼저** → 그 다음 `child.layoutSizingVertical/Horizontal='FILL'`. 순서 바뀌면 실패. 텍스트 래핑: `textAutoResize='HEIGHT'` + 명시적 width(`FIXED`+`resize()`). `FILL`만 주면 collapse. 자식=`layoutSizing*`(FIXED|HUG|FILL), 프레임=`primaryAxis/counterAxisSizingMode`(FIXED|AUTO) — 섞지 말 것.
+2. **오토레이아웃 순서**: `parent.appendChild(child)` **먼저** → 그 다음 `child.layoutSizingVertical/Horizontal='FILL'`. 순서 바뀌면 실패. 텍스트 래핑: `textAutoResize='HEIGHT'` + 명시적 width(`FIXED`+`resize()`). `FILL`만 주면 collapse. 타이틀·pill류 hug width는 `textAutoResize='WIDTH_AND_HEIGHT'` + 컨테이너 hug(AUTO) — 어느 쪽이냐는 카피 역할로 사전 판정(→ `design-dna/02` §1). 자식=`layoutSizing*`(FIXED|HUG|FILL), 프레임=`primaryAxis/counterAxisSizingMode`(FIXED|AUTO) — 섞지 말 것.
 3. **필수 async await**: `setCurrentPageAsync`(페이지 전환, 동기 setter는 throw), `loadFontAsync`, `node.screenshot()`. await 누락=silent failure. 한 스크립트당 `setCurrentPageAsync` 1회 — 멀티페이지는 병렬 fan-out.
 4. **반환값**: 영향받은 노드ID 전부 return(`return {createdNodeIds:[...], mutatedNodeIds:[...]}`). 에이전트는 return 값만 봄.
 5. **색상 0–1 범위**(0–255 아님). `{r:1,g:0,b:0}`=빨강. Paint: `{type:'SOLID', color:{r,g,b}, opacity}`. fills/strokes는 read-only 배열 → 새 배열로 재할당.

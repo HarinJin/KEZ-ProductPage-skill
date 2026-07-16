@@ -111,5 +111,4 @@ detail-page-core/
 
 ## 라이선스
 
-<!-- TODO(공개 전): 라이선스 결정 (MIT / CC BY-NC 등) 후 LICENSE 파일 추가 -->
-미정 (비공개 단계)
+[MIT](LICENSE)
