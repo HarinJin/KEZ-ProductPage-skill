@@ -6,11 +6,11 @@
 
   "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
     --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=10000 \
-    --window-size=860,1180 \
+    --window-size=860,1115 \
     --screenshot=docs/assets/update-YYYY-MM-DD.png \
     "file://$(pwd)/docs/update-card/update-card.html"
 
-  카드 높이(1180)는 body .card 의 height 와 반드시 일치시킬 것.
+  --window-size 의 높이는 .card 의 height 와 반드시 일치시킬 것 (행 수에 따라 조정).
   색 토큰·서체는 detail-page-core/references/brands/demo-browser-ui.md 가 정본.
 -->
 <html lang="ko">
@@ -29,7 +29,7 @@
   html,body{background:var(--ink)}
   body{font-family:"Pretendard Variable",Pretendard,sans-serif;-webkit-font-smoothing:antialiased}
   .mono{font-family:"JetBrains Mono",monospace}
-  .card{width:860px;height:1180px;background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:72px 56px 0}
+  .card{width:860px;height:1115px;background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:72px 56px 0}
   .pill{background:var(--orange);color:var(--white);border-radius:999px;padding:16px 34px;
         font-family:"JetBrains Mono",monospace;font-weight:700;font-size:22px;letter-spacing:.14em}
   h1{color:var(--white);font-weight:800;font-size:62px;line-height:1.22;text-align:center;margin-top:40px;letter-spacing:-.01em}
@@ -68,11 +68,10 @@
     </div>
     <div class="items">
       <!-- [EDIT] 변경 행 (4~6개 권장) -->
-      <div class="item"><div class="tag">SSOT</div><div class="txt">수치 규칙 정본을 <b>하드 게이트 표 한 곳</b>으로 — 문서 간 드리프트 차단</div></div>
-      <div class="item"><div class="tag">VERIFY</div><div class="txt"><b>전체 조립 검증 단계 신설</b> + 반려 재결정 루프 — 섹션&nbsp;통과&nbsp;≠&nbsp;페이지&nbsp;완성</div></div>
-      <div class="item"><div class="tag">ASK</div><div class="txt">인터뷰 강화 — 기획서 훅 · <b>이미지 자산 인벤토리</b> · 질문은 몰아서 한 번에</div></div>
-      <div class="item"><div class="tag">FIX</div><div class="txt">함정 색인 <b>T15(layoutAlign 리셋) 복원</b> · 상호참조 전수 정비</div></div>
-      <div class="item"><div class="tag">CODE</div><div class="txt">예제 크기 리터럴 → 브랜드&nbsp;placeholder(<b>BODY/DISPLAY</b>) — 복붙 안전</div></div>
+      <div class="item"><div class="tag">FONT</div><div class="txt"><b>모바일 폰트 사이즈 최적화</b> — 웹 화면만 고려한 작은 글씨가 나오지 않도록</div></div>
+      <div class="item"><div class="tag">ASK</div><div class="txt"><b>인터뷰 강화</b> — 기획서·보유 이미지를 먼저 확인하고, 질문은 몰아서 한 번에</div></div>
+      <div class="item"><div class="tag">CHECK</div><div class="txt"><b>페이지 전체 검수 단계 추가</b> — 섹션마다 예뻐도, 이어 붙인 흐름까지 봅니다</div></div>
+      <div class="item"><div class="tag">CORE</div><div class="txt"><b>스킬 구조 최적화</b> — 흩어져 있던 규칙을 한 곳으로 정리하고 오류 전수 점검</div></div>
     </div>
   </div>
 
