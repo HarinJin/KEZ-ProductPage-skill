@@ -1,0 +1,83 @@
+<!doctype html>
+<!--
+  업데이트 카드 양식 (demo-browser-ui 프로파일 토큰)
+  ─────────────────────────────────────────────────
+  사용법: 아래 [EDIT] 표시 부분(날짜·헤드라인·서브·변경 행)만 바꾸고 렌더:
+
+  "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+    --headless=new --disable-gpu --hide-scrollbars --virtual-time-budget=10000 \
+    --window-size=860,1180 \
+    --screenshot=docs/assets/update-YYYY-MM-DD.png \
+    "file://$(pwd)/docs/update-card/update-card.html"
+
+  카드 높이(1180)는 body .card 의 height 와 반드시 일치시킬 것.
+  색 토큰·서체는 detail-page-core/references/brands/demo-browser-ui.md 가 정본.
+-->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+  :root{
+    --ink:#2D2D2D; --chrome:#3A3A3A; --orange:#ED7132;
+    --bg-light:#F5F4F2; --white:#FFFFFF; --line:#E3E1DD;
+    --r:#FF5F57; --y:#FEBC2E; --g:#28C840;
+    --sub:#9E9E9E; --gray:#8A8A8A;
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:var(--ink)}
+  body{font-family:"Pretendard Variable",Pretendard,sans-serif;-webkit-font-smoothing:antialiased}
+  .mono{font-family:"JetBrains Mono",monospace}
+  .card{width:860px;height:1180px;background:var(--ink);display:flex;flex-direction:column;align-items:center;padding:72px 56px 0}
+  .pill{background:var(--orange);color:var(--white);border-radius:999px;padding:16px 34px;
+        font-family:"JetBrains Mono",monospace;font-weight:700;font-size:22px;letter-spacing:.14em}
+  h1{color:var(--white);font-weight:800;font-size:62px;line-height:1.22;text-align:center;margin-top:40px;letter-spacing:-.01em}
+  .sub{color:var(--sub);font-size:27px;text-align:center;margin-top:22px;font-weight:400}
+  .window{width:100%;background:var(--white);border-radius:14px;margin-top:48px;overflow:hidden}
+  .bar{background:var(--bg-light);height:58px;display:flex;align-items:center;padding:0 22px;position:relative}
+  .dots{display:flex;gap:10px}
+  .dot{width:16px;height:16px;border-radius:50%}
+  .url{position:absolute;left:50%;transform:translateX(-50%);background:var(--chrome);color:#E9E7E3;
+       border-radius:999px;padding:9px 26px;font-family:"JetBrains Mono",monospace;font-size:17px;font-weight:500}
+  .items{padding:14px 40px 18px}
+  .item{display:flex;align-items:flex-start;gap:18px;padding:26px 0;border-bottom:1px solid var(--line)}
+  .item:last-child{border-bottom:none}
+  .tag{flex:none;font-family:"JetBrains Mono",monospace;font-weight:700;font-size:14px;letter-spacing:.08em;
+       color:var(--orange);border:2px solid var(--orange);border-radius:999px;padding:6px 14px;margin-top:2px}
+  .txt{color:var(--ink);font-size:24px;line-height:1.5;font-weight:500;word-break:keep-all}
+  .txt b{font-weight:800}
+  .foot{margin-top:auto;padding:34px 0 40px;color:var(--gray);font-family:"JetBrains Mono",monospace;font-size:19px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="pill">UPDATE</div>
+
+  <!-- [EDIT] 헤드라인 (1~2줄) -->
+  <h1>18개 에이전트가<br>전수 감사했습니다</h1>
+
+  <!-- [EDIT] 영문 서브 -->
+  <div class="sub">Full-package audit — verified &amp; applied.</div>
+
+  <div class="window">
+    <div class="bar">
+      <div class="dots"><div class="dot" style="background:var(--r)"></div><div class="dot" style="background:var(--y)"></div><div class="dot" style="background:var(--g)"></div></div>
+      <!-- [EDIT] 날짜 -->
+      <div class="url">changelog · 2026-07-22</div>
+    </div>
+    <div class="items">
+      <!-- [EDIT] 변경 행 (4~6개 권장) -->
+      <div class="item"><div class="tag">SSOT</div><div class="txt">수치 규칙 정본을 <b>하드 게이트 표 한 곳</b>으로 — 문서 간 드리프트 차단</div></div>
+      <div class="item"><div class="tag">VERIFY</div><div class="txt"><b>전체 조립 검증 단계 신설</b> + 반려 재결정 루프 — 섹션&nbsp;통과&nbsp;≠&nbsp;페이지&nbsp;완성</div></div>
+      <div class="item"><div class="tag">ASK</div><div class="txt">인터뷰 강화 — 기획서 훅 · <b>이미지 자산 인벤토리</b> · 질문은 몰아서 한 번에</div></div>
+      <div class="item"><div class="tag">FIX</div><div class="txt">함정 색인 <b>T15(layoutAlign 리셋) 복원</b> · 상호참조 전수 정비</div></div>
+      <div class="item"><div class="tag">CODE</div><div class="txt">예제 크기 리터럴 → 브랜드&nbsp;placeholder(<b>BODY/DISPLAY</b>) — 복붙 안전</div></div>
+    </div>
+  </div>
+
+  <!-- [EDIT] 푸터 날짜 -->
+  <div class="foot">detail-page-core · changelog 2026-07-22</div>
+</div>
+</body>
+</html>
